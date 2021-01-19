@@ -1,0 +1,101 @@
+:root{
+  --moderate-violet: hsl(263, 55%, 52%);
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --vry-dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+html{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+body{
+  background-color: var(--light-grayish-blue);
+}
+blockquote{
+  margin: 0;
+}
+@media screen and (min-width: 96rem){
+  blockquote{
+    line-height: 1.3rem;
+  }
+}
+/* -------------------- ESTILOS -------------------- */
+.card{
+  border-radius: 10px;
+  box-shadow: 5px 8px 50px -4px rgba(0,0,0,0.25);
+}
+.card-body > p{
+  z-index: 2;
+}
+.profile{
+  align-items: center;
+}
+.profile > img{
+  width: 40px;
+  border-radius: 50%;
+  border: thin solid var(--white);
+}
+.card:first-child{
+  background-color: var(--moderate-violet);
+  position: relative;
+}
+.card:first-child::before{
+  content: '';
+  background-image: url(../images/bg-pattern-quotation.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  width: 100px;
+  height: 100px;
+}
+.card:nth-child(2){
+  background-color: var(--very-dark-grayish-blue);
+}
+.card:nth-child(4){
+  background-color: var(--vry-dark-blackish-blue);
+}
+
+@media screen and (min-width: 64rem){
+  main{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: 'daniel daniel jonathan kira'
+    'jeanette patrick patrick kira';
+    gap: 1rem;
+    height: calc(100vh - 8.4rem);
+    place-content: center;
+    font-size: .8rem;
+  }
+  .card:first-child::before{
+    right: 5rem; 
+  }
+  p{
+    line-height: normal !important;
+    font-size: 1rem;
+  }
+  .card:first-child{
+    grid-area: daniel;
+  }
+  .card:nth-child(2){
+    grid-area: jonathan;
+  }
+  .card:nth-child(3){
+    grid-area: jeanette;
+  }
+  .card:nth-child(4){
+    grid-area: patrick;
+  }
+  .card:last-child{
+    grid-area: kira;
+  }
+}
+@media screen and (min-width: 96rem){
+  .container{
+    max-width: 60%;
+  }
+}
